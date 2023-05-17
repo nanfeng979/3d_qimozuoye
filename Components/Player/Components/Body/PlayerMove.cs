@@ -17,7 +17,6 @@ public class PlayerMove : MonoBehaviour
     void Update()
     {
         Move();
-        Rotate();
         Jump();
     }
 
@@ -28,24 +27,6 @@ public class PlayerMove : MonoBehaviour
             rb.velocity = -transform.forward * moveSpeed;
         }
     }
-
-    private void Rotate() {
-        if(Input.GetKeyDown(KeyCode.Q)) {
-            StartCoroutine(RotateCoroutine(-30));
-        } else if(Input.GetKeyDown(KeyCode.E)) {
-            StartCoroutine(RotateCoroutine(30));
-        }
-    }
-
-    IEnumerator RotateCoroutine(float angle) {
-        float time = 0;
-        while(time < 1.0f) {
-            time += Time.deltaTime;
-            transform.Rotate(0, angle * Time.deltaTime, 0);
-            yield return null;
-        }
-    }
-
     private void Jump() {
         if(Input.GetKeyDown(KeyCode.Space)) {
             rb.velocity = Vector3.up * jumpSpeed;
