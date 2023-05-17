@@ -7,6 +7,7 @@ public class PlayerMove : MonoBehaviour
     private Rigidbody rb;
 
     private float moveSpeed = 5.0f;
+    private float jumpSpeed = 5.0f;
 
     void Start()
     {
@@ -17,6 +18,7 @@ public class PlayerMove : MonoBehaviour
     {
         Move();
         Rotate();
+        Jump();
     }
 
     private void Move() {
@@ -41,6 +43,12 @@ public class PlayerMove : MonoBehaviour
             time += Time.deltaTime;
             transform.Rotate(0, angle * Time.deltaTime, 0);
             yield return null;
+        }
+    }
+
+    private void Jump() {
+        if(Input.GetKeyDown(KeyCode.Space)) {
+            rb.velocity = Vector3.up * jumpSpeed;
         }
     }
 }
