@@ -16,8 +16,10 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
-        Move();
-        Jump();
+        if(GameManager.Instance.GetGameStatus() == EGameStatus.Playing) {
+            Move();
+            Jump();
+        }
     }
 
     private void Move() {

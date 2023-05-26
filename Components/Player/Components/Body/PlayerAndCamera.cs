@@ -22,9 +22,11 @@ public class PlayerAndCamera : MonoBehaviour
 
     void Update()
     {
-        CameraFollowMouse();
+        if(GameManager.Instance.GetGameStatus() == EGameStatus.Playing) {
+            CameraFollowMouse();
 
-        myCamera.transform.position = transform.position - transform.forward * offset.z - transform.up * offset.y - transform.right * offset.x;
+            myCamera.transform.position = transform.position - transform.forward * offset.z - transform.up * offset.y - transform.right * offset.x;
+        }
     }
 
     private void CameraFollowMouse() {

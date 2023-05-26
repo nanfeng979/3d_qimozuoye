@@ -22,25 +22,28 @@ public class GameTimeCountDown : MonoBehaviour
             ResetGame();
         }
 
-        GameOverTime -= Time.deltaTime;
+        if(GameManager.Instance.GetGameStatus() == EGameStatus.Playing) {
+            GameOverTime -= Time.deltaTime;
 
-        if(GameOverTime <= 0.0f) {
-            GameOver();
-            return;
+            if(GameOverTime <= 0.0f) {
+                GameOver();
+                return;
+            }
+
+            // 实时更新倒计时
+            GameTimeText.text = "距离游戏结束还剩下：" + GameOverTime.ToString("F6") + " 秒";
         }
-
-        // 实时更新倒计时
-        GameTimeText.text = "距离游戏结束还剩下：" + GameOverTime.ToString("F6") + " 秒";
     }
 
     private void GameOver() {
         GameTimeText.text = "游戏结束";
 
         // 暂停时间
-        Time.timeScale = 0.0f;
+        GameManager.Instance.SetGameStatus(EGameStatus.Stop);
     }
 
     private void ResetGame() {
         SceneManager.LoadScene("Playing");
+        GameManager.Instance.SetGameStatus(EGameStatus.Playing);
     }
 }
