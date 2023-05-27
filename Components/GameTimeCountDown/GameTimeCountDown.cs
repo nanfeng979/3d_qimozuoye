@@ -21,7 +21,9 @@ public class GameTimeCountDown : MonoBehaviour
             // 重置游戏关卡
             ResetGame();
         }
+    }
 
+    public void isPlaying() {
         if(GameManager.Instance.GameStatusIsPlaying()) {
             GameOverTime -= Time.deltaTime;
 

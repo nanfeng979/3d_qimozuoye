@@ -9,12 +9,18 @@ public class GameManager : MonoBehaviour
 
     public GameState currentGameStatus { get; private set; }
 
+    public GameObject Player;
+    public GameObject GameTimeCountDown;
+
     void Start()
     {
         if(Instance == null) {
             Instance = this;
 
-            DontDestroyOnLoad(this);
+            // DontDestroyOnLoad(this);
+
+            // Player = GameObject.Find("Player_ahri");
+            // GameTimeCountDown = GameObject.Find("GameTimeCountDown");
 
             currentGameStatus = new PlayingState(this);
             currentGameStatus.EnterState();

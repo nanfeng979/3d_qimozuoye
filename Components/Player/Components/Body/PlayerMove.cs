@@ -16,10 +16,12 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
-        if(GameManager.Instance.GameStatusIsPlaying()) {
-            Move();
-            Jump();
-        }
+
+    }
+
+    public void isPlaying() {
+        Move();
+        Jump();
     }
 
     private void Move() {

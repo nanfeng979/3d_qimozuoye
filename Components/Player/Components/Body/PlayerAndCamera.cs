@@ -17,13 +17,10 @@ public class PlayerAndCamera : MonoBehaviour
         offset = transform.position - myCamera.transform.position;
     }
 
-    void Update()
-    {
-        if(GameManager.Instance.GameStatusIsPlaying()) {
-            CameraFollowMouse();
+    public void isPlaying() {
+        CameraFollowMouse();
 
-            myCamera.transform.position = transform.position - transform.forward * offset.z - transform.up * offset.y - transform.right * offset.x;
-        }
+        myCamera.transform.position = transform.position - transform.forward * offset.z - transform.up * offset.y - transform.right * offset.x;
     }
 
     private void CameraFollowMouse() {
