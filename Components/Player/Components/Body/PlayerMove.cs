@@ -25,18 +25,8 @@ public class PlayerMove : MonoBehaviour
     public void isPlaying() {
         Move();
         Jump();
-        AgentMove();
     }
-
-    private void AgentMove() {
-        if(Input.GetMouseButtonDown(0)) {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if(Physics.Raycast(ray, out RaycastHit hit)) {
-                agent.SetDestination(hit.point);
-            }
-        }
-    }
-
+    
     private void Move() {
         if(Input.GetKey(KeyCode.W)) {
             rb.velocity = transform.forward * moveSpeed;
