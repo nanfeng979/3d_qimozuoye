@@ -3,56 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public enum EGameStatus {
-    Playing,
-    Stop
-}
-
-public abstract class GameState {
-    protected GameManager gameManager;
-
-    public GameState(GameManager gameManager) {
-        this.gameManager = gameManager;
-    }
-
-    public virtual void EnterState() {}
-    public virtual void UpdateState() {}
-    public virtual void ExitState() {}
-}
-
-public class GameStartState : GameState {
-    public GameStartState(GameManager gameManager) : base(gameManager) { }
-
-    public override void EnterState() {
-        SceneManager.LoadScene("Playing");
-        gameManager.SetGameStatus(new PlayingState(gameManager));
-    }
-}
-
-public class PlayingState : GameState {
-    public PlayingState(GameManager gameManager) : base(gameManager) { }
-
-    public override void EnterState() {
-        Time.timeScale = 1.0f;
-    }
-}
-
-public class StopState : GameState {
-    public StopState(GameManager gameManager) : base(gameManager) { }
-
-    public override void EnterState() {
-        Time.timeScale = 0.0f;
-    }
-}
-
-public class GameOverState : GameState {
-    public GameOverState(GameManager gameManager) : base(gameManager) { }
-
-    public override void EnterState() {
-        Time.timeScale = 0.0f;
-    }
-}
-
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
