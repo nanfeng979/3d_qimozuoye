@@ -20,18 +20,20 @@ public abstract class GameState {
     public virtual void ExitState() {}
 }
 
+public class GameStartState : GameState {
+    public GameStartState(GameManager gameManager) : base(gameManager) { }
+
+    public override void EnterState() {
+        SceneManager.LoadScene("Playing");
+        gameManager.SetGameStatus(new PlayingState(gameManager));
+    }
+}
+
 public class PlayingState : GameState {
     public PlayingState(GameManager gameManager) : base(gameManager) { }
 
     public override void EnterState() {
-        SceneManager.LoadScene("Playing");
-        Debug.Log("start");
         Time.timeScale = 1.0f;
-    }
-
-    public override void UpdateState()
-    {
-        Debug.Log("UpdateState");
     }
 }
 
@@ -41,10 +43,13 @@ public class StopState : GameState {
     public override void EnterState() {
         Time.timeScale = 0.0f;
     }
+}
 
-    public override void UpdateState()
-    {
-        Debug.Log("stop");
+public class GameOverState : GameState {
+    public GameOverState(GameManager gameManager) : base(gameManager) { }
+
+    public override void EnterState() {
+        Time.timeScale = 0.0f;
     }
 }
 

@@ -43,7 +43,6 @@ public class GameTimeCountDown : MonoBehaviour
     }
 
     private void ResetGame() {
-        SceneManager.LoadScene("Playing");
-        GameManager.Instance.SetGameStatus(new PlayingState(GameManager.Instance));
+        GameManager.Instance.SetGameStatus(new GameStartState(GameManager.Instance));
     }
 }
