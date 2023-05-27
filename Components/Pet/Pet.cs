@@ -18,7 +18,7 @@ public class Pet : MonoBehaviour
     }
 
     public void isPlaying() {
-        if(Input.GetMouseButtonDown(0)) {
+        if(Input.GetKey(KeyCode.LeftControl) && Input.GetMouseButtonDown(0)) {
             FollowMousePosition();
         }
     }
