@@ -22,7 +22,7 @@ public class GameTimeCountDown : MonoBehaviour
             ResetGame();
         }
 
-        if(GameManager.Instance.GetGameStatus() == EGameStatus.Playing) {
+        if(GameManager.Instance.GameStatusIsPlaying()) {
             GameOverTime -= Time.deltaTime;
 
             if(GameOverTime <= 0.0f) {
@@ -39,11 +39,11 @@ public class GameTimeCountDown : MonoBehaviour
         GameTimeText.text = "游戏结束";
 
         // 暂停时间
-        GameManager.Instance.SetGameStatus(EGameStatus.Stop);
+        GameManager.Instance.SetGameStatus(new StopState(GameManager.Instance));
     }
 
     private void ResetGame() {
         SceneManager.LoadScene("Playing");
-        GameManager.Instance.SetGameStatus(EGameStatus.Playing);
+        GameManager.Instance.SetGameStatus(new PlayingState(GameManager.Instance));
     }
 }

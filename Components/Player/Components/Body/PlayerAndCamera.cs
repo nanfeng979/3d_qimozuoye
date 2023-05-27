@@ -7,9 +7,6 @@ public class PlayerAndCamera : MonoBehaviour
     [Range(1.0f, 10.0f)]
     public float CameraFollowSpeed;
 
-    // 定义一个public 的 float 变量，限制范围在1 - 10
-
-
     [SerializeField] private Camera myCamera;
     private Vector3 offset;
 
@@ -22,7 +19,7 @@ public class PlayerAndCamera : MonoBehaviour
 
     void Update()
     {
-        if(GameManager.Instance.GetGameStatus() == EGameStatus.Playing) {
+        if(GameManager.Instance.GameStatusIsPlaying()) {
             CameraFollowMouse();
 
             myCamera.transform.position = transform.position - transform.forward * offset.z - transform.up * offset.y - transform.right * offset.x;

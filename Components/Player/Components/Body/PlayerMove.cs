@@ -16,7 +16,7 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
-        if(GameManager.Instance.GetGameStatus() == EGameStatus.Playing) {
+        if(GameManager.Instance.GameStatusIsPlaying()) {
             Move();
             Jump();
         }
