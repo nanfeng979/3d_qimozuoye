@@ -18,12 +18,6 @@ public class Light_Spot : MonoBehaviour
 
         _light = GetComponent<Light>();
 
-        if(gameObject.name == "Left") {
-            isLeft = true;
-        } else {
-            isLeft = false;
-        }
-
         _light.intensity = 0.0f;
     }
 
@@ -31,15 +25,9 @@ public class Light_Spot : MonoBehaviour
     {
         PlayerNewPos = Player.transform.position;
 
-
-        if(Vector3.Distance(Player.transform.position, transform.position) > 8.0f) {
-            return;
-        }
-
-        if(Mathf.Abs((Player.transform.forward - transform.forward).x) < 0.5f) {
+        if(Vector3.Distance(Player.transform.position, transform.position) < 8.0f) {
             _light.intensity = 2.5f;
         }
-        
 
         PlayerOldPos = PlayerNewPos;
     }
