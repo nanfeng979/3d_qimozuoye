@@ -10,5 +10,6 @@ public class PlayingState : GameState {
         GameManager.Instance.Player.GetComponent<PlayerAndCamera>().isPlaying();
         GameManager.Instance.Player.GetComponent<PlayerMove>().isPlaying();
         GameManager.Instance.GameTimeCountDown.GetComponent<GameTimeCountDown>().isPlaying();
+        GameManager.Instance.Pet.GetComponent<Pet>().isPlaying();
     }
 }
