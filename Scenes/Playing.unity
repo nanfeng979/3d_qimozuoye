@@ -14156,6 +14156,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee14b1f25dfe2cc47b8d8d5f26dd6a95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1877453031 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a1ebe2de3568fb34ea8dcb44a6832778, type: 3}
+  m_PrefabInstance: {fileID: 1877453026}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1889806301
 GameObject:
   m_ObjectHideFlags: 0
@@ -19185,6 +19190,63 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameOverTime: 1000
   GameTimeText: {fileID: 1539790606}
+--- !u!1001 &2012207894
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1877453031}
+    m_Modifications:
+    - target: {fileID: 8504085659858039323, guid: c1183541208368d4b96cea51e2aeda9c, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8504085659858039323, guid: c1183541208368d4b96cea51e2aeda9c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8504085659858039323, guid: c1183541208368d4b96cea51e2aeda9c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0119
+      objectReference: {fileID: 0}
+    - target: {fileID: 8504085659858039323, guid: c1183541208368d4b96cea51e2aeda9c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.0142
+      objectReference: {fileID: 0}
+    - target: {fileID: 8504085659858039323, guid: c1183541208368d4b96cea51e2aeda9c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8504085659858039323, guid: c1183541208368d4b96cea51e2aeda9c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8504085659858039323, guid: c1183541208368d4b96cea51e2aeda9c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8504085659858039323, guid: c1183541208368d4b96cea51e2aeda9c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8504085659858039323, guid: c1183541208368d4b96cea51e2aeda9c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8504085659858039323, guid: c1183541208368d4b96cea51e2aeda9c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8504085659858039323, guid: c1183541208368d4b96cea51e2aeda9c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8506624823705872407, guid: c1183541208368d4b96cea51e2aeda9c, type: 3}
+      propertyPath: m_Name
+      value: Magic fire pro orange
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c1183541208368d4b96cea51e2aeda9c, type: 3}
 --- !u!4 &2039082290 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5878289633111077010, guid: 90157a883c4ce9041886d48757db3385, type: 3}
