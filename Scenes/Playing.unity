@@ -14107,6 +14107,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -2336556298395683364, guid: a1ebe2de3568fb34ea8dcb44a6832778, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.5373
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a1ebe2de3568fb34ea8dcb44a6832778, type: 3}
       propertyPath: m_Name
       value: shyvana_dragon
