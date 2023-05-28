@@ -18,11 +18,6 @@ public class GameManager : MonoBehaviour
         if(Instance == null) {
             Instance = this;
 
-            // DontDestroyOnLoad(this);
-
-            // Player = GameObject.Find("Player_ahri");
-            // GameTimeCountDown = GameObject.Find("GameTimeCountDown");
-
             currentGameStatus = new PlayingState(this);
             currentGameStatus.EnterState();
         }
@@ -47,9 +42,5 @@ public class GameManager : MonoBehaviour
 
     public bool GameStatusIsPlaying() {
         return currentGameStatus is PlayingState;
-    }
-
-    private void GameStatusIsStop() {
-        
     }
 }
