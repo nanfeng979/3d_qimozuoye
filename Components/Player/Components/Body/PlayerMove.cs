@@ -11,6 +11,8 @@ public class PlayerMove : MonoBehaviour
     private float moveSpeed = 5.0f;
     private float jumpSpeed = 5.0f;
 
+    public bool isMove = false;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -30,8 +32,12 @@ public class PlayerMove : MonoBehaviour
     private void Move() {
         if(Input.GetKey(KeyCode.W)) {
             rb.velocity = transform.forward * moveSpeed;
+            isMove = true;
         } else if(Input.GetKey(KeyCode.S)) {
             rb.velocity = -transform.forward * moveSpeed;
+            isMove = true;
+        } else {
+            isMove = false;
         }
     }
     private void Jump() {
