@@ -34,6 +34,7 @@ public class Pet : ComputerAI
         moveSpeed = 7.0f;
 
         HP = 100;
+        MaxHP = 100;
         AttackDamage = 30;
         AttackRange = 3;
         AttackTime = 2.5f;
