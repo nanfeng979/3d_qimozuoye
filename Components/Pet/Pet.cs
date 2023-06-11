@@ -11,24 +11,36 @@ enum PetState {
     back
 }
 
-public class Pet : MonoBehaviour
+public class Pet : ComputerAI
 {
     [SerializeField] private GameObject player;
-    [SerializeField] private GameObject[] monster;
+
+    public float moveSpeed;
+
+    private float withPlayerDistance = 50.0f;
 
     private NavMeshAgent agent;
     private PetState petstate;
+
     
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        rb = GetComponent<Rigidbody>();
+        moveSpeed = 7.0f;
+
+        HP = 100;
+        AttackDamage = 30;
+        AttackRange = 10;
+        ViewRange = 20;
 
         petstate = PetState.stand;
     }
 
     void Update()
     {
+        Debug.Log(petstate);
         switch(petstate) {
             case PetState.stand:
                 Stand();
@@ -45,7 +57,6 @@ public class Pet : MonoBehaviour
             case PetState.back:
                 Back();
                 break;
-
         }
     }
 
@@ -54,25 +65,63 @@ public class Pet : MonoBehaviour
             petstate = PetState.move;
         }
 
-        for(int i = 0; i < monster.Length; i++) {
-            // if()
+        for(int i = 0; i < rival.Length; i++) {
+            if(Vector3.Distance(transform.position, rival[i].transform.position) <= ViewRange) {
+                petstate = PetState.chasing;
+            }
         }
+
+        // transform.position = player.transform.position + player.transform.forward * 2.0f + player.transform.right * 2.0f;
+        rb.velocity = Vector3.zero;
+        transform.rotation = player.transform.rotation;
     }
 
     private void Move() {
+        if(!player.GetComponent<PlayerMove>().isMove) {
+            petstate = PetState.back;
+        }
 
+        for(int i = 0; i < rival.Length; i++) {
+            if(Vector3.Distance(transform.position, rival[i].transform.position) <= ViewRange) {
+                petstate = PetState.chasing;
+            }
+        }
+
+        rb.velocity = transform.forward * moveSpeed;
+
+        // transform.position = Vector3.MoveTowards(transform.position, player.transform.position, 0.1f);
     }
 
     private void Chasing() {
+        for(int i = 0; i < rival.Length; i++) {
+            if(Vector3.Distance(transform.position, rival[i].transform.position) > ViewRange) {
+                petstate = PetState.back;
+            }
+        }
 
+        for(int i = 0; i < rival.Length; i++) {
+            if(Vector3.Distance(transform.position, rival[i].transform.position) <= AttackRange) {
+                petstate = PetState.attack;
+            }
+        }
     }
 
     private void Attack() {
-
+        for(int i = 0; i < rival.Length; i++) {
+            if(Vector3.Distance(transform.position, rival[i].transform.position) > AttackRange) {
+                petstate = PetState.chasing;
+            }
+        }
     }
 
     private void Back() {
+        if(Vector3.Distance(transform.position, player.transform.position) < 3.0f) {
+            petstate = PetState.stand;
+        }
 
+        // rb.velocity = (player.transform.position - transform.position).normalized * 1.0f;
+        transform.position = Vector3.MoveTowards(transform.position, player.transform.position + player.transform.forward * 2.0f, 0.1f);
+        transform.LookAt(player.transform.position);
     }
 
     public void isPlaying() {
