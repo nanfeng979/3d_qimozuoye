@@ -19,6 +19,8 @@ public class Pet : ComputerAI
 
     private float withPlayerDistance = 50.0f;
 
+    private GameObject currentTarget;
+
     private NavMeshAgent agent;
     private PetState petstate;
 
@@ -28,12 +30,15 @@ public class Pet : ComputerAI
     {
         agent = GetComponent<NavMeshAgent>();
         rb = GetComponent<Rigidbody>();
+        anim = GetComponent<Animator>();
         moveSpeed = 7.0f;
 
         HP = 100;
         AttackDamage = 30;
-        AttackRange = 10;
-        ViewRange = 20;
+        AttackRange = 3;
+        AttackTime = 2.5f;
+        ViewRange = 6;
+        AttackTimer = AttackTime;
 
         petstate = PetState.stand;
     }
@@ -68,6 +73,7 @@ public class Pet : ComputerAI
         for(int i = 0; i < rival.Length; i++) {
             if(Vector3.Distance(transform.position, rival[i].transform.position) <= ViewRange) {
                 petstate = PetState.chasing;
+                currentTarget = rival[i];
             }
         }
 
@@ -84,6 +90,7 @@ public class Pet : ComputerAI
         for(int i = 0; i < rival.Length; i++) {
             if(Vector3.Distance(transform.position, rival[i].transform.position) <= ViewRange) {
                 petstate = PetState.chasing;
+                currentTarget = rival[i];
             }
         }
 
@@ -93,24 +100,31 @@ public class Pet : ComputerAI
     }
 
     private void Chasing() {
-        for(int i = 0; i < rival.Length; i++) {
-            if(Vector3.Distance(transform.position, rival[i].transform.position) > ViewRange) {
-                petstate = PetState.back;
-            }
+        if(Vector3.Distance(transform.position, currentTarget.transform.position) > ViewRange) {
+            petstate = PetState.back;
         }
 
-        for(int i = 0; i < rival.Length; i++) {
-            if(Vector3.Distance(transform.position, rival[i].transform.position) <= AttackRange) {
-                petstate = PetState.attack;
-            }
+        if(Vector3.Distance(transform.position, currentTarget.transform.position) <= AttackRange) {
+            petstate = PetState.attack;
         }
+
+        rb.velocity = Vector3.zero;
+        transform.position = Vector3.MoveTowards(transform.position, currentTarget.transform.position, 0.1f);
+        transform.LookAt(currentTarget.transform);
     }
 
     private void Attack() {
-        for(int i = 0; i < rival.Length; i++) {
-            if(Vector3.Distance(transform.position, rival[i].transform.position) > AttackRange) {
-                petstate = PetState.chasing;
-            }
+        if(Vector3.Distance(transform.position, currentTarget.transform.position) > AttackRange) {
+            petstate = PetState.chasing;
+        }
+
+        rb.velocity = Vector3.zero;
+        transform.LookAt(currentTarget.transform);
+
+        AttackTimer += Time.deltaTime;
+        if(AttackTimer >= AttackTime) {
+            anim.SetTrigger("isAttack");
+            AttackTimer -= AttackTime;
         }
     }
 

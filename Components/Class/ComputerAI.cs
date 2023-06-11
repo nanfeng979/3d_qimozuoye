@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class ComputerAI : MonoBehaviour
 {
-    public int HP;
-    public int AttackDamage;
-    public float AttackRange;
-    public float ViewRange;
+    protected int HP;
+    protected int AttackDamage;
+    protected float AttackRange;
+    protected float AttackTime;
+    protected float AttackTimer;
+    protected float ViewRange;
 
     public GameObject[] rival;
 
     protected Rigidbody rb;
+    protected Animator anim;
 }
