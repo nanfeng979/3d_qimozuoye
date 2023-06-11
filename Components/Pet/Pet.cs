@@ -48,24 +48,24 @@ public class Pet : ComputerAI
         Debug.Log(petstate);
         switch(petstate) {
             case PetState.stand:
-                Stand();
+                StandState();
                 break;
             case PetState.move:
-                Move();
+                MoveState();
                 break;
             case PetState.chasing:
-                Chasing();
+                ChasingState();
                 break;
             case PetState.attack:
-                Attack();
+                AttackState();
                 break;
             case PetState.back:
-                Back();
+                BackState();
                 break;
         }
     }
 
-    private void Stand() {
+    private void StandState() {
         if(player.GetComponent<PlayerMove>().isMove) {
             petstate = PetState.move;
         }
@@ -82,7 +82,7 @@ public class Pet : ComputerAI
         transform.rotation = player.transform.rotation;
     }
 
-    private void Move() {
+    private void MoveState() {
         if(!player.GetComponent<PlayerMove>().isMove) {
             petstate = PetState.back;
         }
@@ -99,7 +99,7 @@ public class Pet : ComputerAI
         // transform.position = Vector3.MoveTowards(transform.position, player.transform.position, 0.1f);
     }
 
-    private void Chasing() {
+    private void ChasingState() {
         if(Vector3.Distance(transform.position, currentTarget.transform.position) > ViewRange) {
             petstate = PetState.back;
         }
@@ -113,7 +113,7 @@ public class Pet : ComputerAI
         transform.LookAt(currentTarget.transform);
     }
 
-    private void Attack() {
+    private void AttackState() {
         if(Vector3.Distance(transform.position, currentTarget.transform.position) > AttackRange) {
             petstate = PetState.chasing;
         }
@@ -128,7 +128,7 @@ public class Pet : ComputerAI
         }
     }
 
-    private void Back() {
+    private void BackState() {
         if(Vector3.Distance(transform.position, player.transform.position) < 3.0f) {
             petstate = PetState.stand;
         }
