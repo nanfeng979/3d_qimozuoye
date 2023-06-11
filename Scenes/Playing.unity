@@ -812,6 +812,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e661370be6f77a408ea89d0a5aaf8dc, type: 3}
+--- !u!114 &771526796 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8710962997063049402, guid: 6ff00726d16fcbd4ba87427a3c4e6d26, type: 3}
+  m_PrefabInstance: {fileID: 953043476}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &854371138
 GameObject:
   m_ObjectHideFlags: 0
@@ -5897,6 +5908,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 31381a320a1eaff4d8cded7ce05a611f, type: 3}
+    - target: {fileID: 8710962997063049402, guid: 6ff00726d16fcbd4ba87427a3c4e6d26, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ff00726d16fcbd4ba87427a3c4e6d26, type: 3}
 --- !u!224 &953043477 stripped
@@ -6369,6 +6384,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1361707511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1361707508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c99aeba37c53da748abefd4225f8f428, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rival: []
+  BloodVolumeBar: {fileID: 771526796}
 --- !u!1001 &1375535796
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6912,7 +6941,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ef783cc27ae92e94d82350694d754ab1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 41.93
+      value: 41.66
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ef783cc27ae92e94d82350694d754ab1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -14708,10 +14737,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee14b1f25dfe2cc47b8d8d5f26dd6a95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 0
-  AttackDamage: 0
-  AttackRange: 0
-  rival: []
+  rival:
+  - {fileID: 1361707508}
+  BloodVolumeBar: {fileID: 0}
   player: {fileID: 1645125072}
   moveSpeed: 0
 --- !u!4 &1877453031 stripped
@@ -14748,6 +14776,26 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!95 &1877453034
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1877453027}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b97fb2a9e01e37b4c83441882a408d60, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1889806301
 GameObject:
   m_ObjectHideFlags: 0

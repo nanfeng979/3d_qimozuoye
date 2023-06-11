@@ -19,7 +19,6 @@ public class Pet : ComputerAI
 
     private float withPlayerDistance = 50.0f;
 
-    private GameObject currentTarget;
 
     private NavMeshAgent agent;
     private PetState petstate;

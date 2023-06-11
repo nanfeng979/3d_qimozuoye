@@ -5,13 +5,14 @@ using UnityEngine.UI;
 
 public class ComputerAI : MonoBehaviour
 {
-    protected int HP;
-    protected int MaxHP;
-    protected int AttackDamage;
+    protected float HP;
+    protected float MaxHP;
+    protected float AttackDamage;
     protected float AttackRange;
     protected float AttackTime;
     protected float AttackTimer;
     protected float ViewRange;
+    protected GameObject currentTarget;
 
     public GameObject[] rival;
     public Image BloodVolumeBar;
@@ -19,8 +20,8 @@ public class ComputerAI : MonoBehaviour
     protected Rigidbody rb;
     protected Animator anim;
 
-    protected void Attack(GameObject target, int damage) {
-        target.GetComponent<ComputerAI>().TakeDamage(damage);
+    public void Attack(int damage) {
+        currentTarget.GetComponent<ComputerAI>().TakeDamage(damage);
     }
 
     protected void TakeDamage(int damage) {
