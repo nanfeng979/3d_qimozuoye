@@ -20,8 +20,8 @@ public class ComputerAI : MonoBehaviour
     protected Rigidbody rb;
     protected Animator anim;
 
-    public void Attack(int damage) {
-        currentTarget.GetComponent<ComputerAI>().TakeDamage(damage);
+    public void Attack() {
+        currentTarget.GetComponent<ComputerAI>()?.TakeDamage((int)AttackDamage);
     }
 
     protected void TakeDamage(int damage) {
@@ -30,6 +30,10 @@ public class ComputerAI : MonoBehaviour
 
     protected void SetBloodVolumeBar() {
         BloodVolumeBar.fillAmount = HP / MaxHP;
+    }
+
+    protected void IsDead() {
+        gameObject.SetActive(false);
     }
 
 }

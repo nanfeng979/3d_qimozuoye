@@ -6533,6 +6533,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1344179904 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8710962997063049402, guid: 6ff00726d16fcbd4ba87427a3c4e6d26, type: 3}
+  m_PrefabInstance: {fileID: 1784586590}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1360274355
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6663,7 +6674,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c99aeba37c53da748abefd4225f8f428, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rival: []
+  rival:
+  - {fileID: 1877453027}
+  - {fileID: 1645125072}
   BloodVolumeBar: {fileID: 771526796}
 --- !u!1001 &1375535796
 PrefabInstance:
@@ -14614,6 +14627,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: d09238f5b49b6734a859ff39b051316b, type: 3}
+    - target: {fileID: 9220370387166177847, guid: 6ff00726d16fcbd4ba87427a3c4e6d26, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ff00726d16fcbd4ba87427a3c4e6d26, type: 3}
 --- !u!224 &1784586591 stripped
@@ -15052,7 +15069,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rival:
   - {fileID: 1361707508}
-  BloodVolumeBar: {fileID: 0}
+  BloodVolumeBar: {fileID: 1344179904}
   player: {fileID: 1645125072}
   moveSpeed: 0
 --- !u!4 &1877453031 stripped

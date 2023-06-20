@@ -23,8 +23,6 @@ public class Pet : ComputerAI
     private NavMeshAgent agent;
     private PetState petstate;
 
-    
-
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -34,7 +32,7 @@ public class Pet : ComputerAI
 
         HP = 100;
         MaxHP = 100;
-        AttackDamage = 30;
+        AttackDamage = 10;
         AttackRange = 3;
         AttackTime = 2.5f;
         ViewRange = 6;
@@ -45,8 +43,17 @@ public class Pet : ComputerAI
 
     void Update()
     {
-        Debug.Log(petstate);
-        switch(petstate) {
+        SetBloodVolumeBar();
+
+        if(HP <= 0) {
+            IsDead();
+        }
+
+        if(Input.GetKeyDown(KeyCode.B)) {
+            gameObject.SetActive(false);
+        }
+        
+        switch (petstate) {
             case PetState.stand:
                 StandState();
                 break;
