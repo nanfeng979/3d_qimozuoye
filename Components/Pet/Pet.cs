@@ -49,10 +49,6 @@ public class Pet : ComputerAI
             IsDead();
         }
 
-        if(Input.GetKeyDown(KeyCode.B)) {
-            gameObject.SetActive(false);
-        }
-        
         switch (petstate) {
             case PetState.stand:
                 StandState();
@@ -124,6 +120,7 @@ public class Pet : ComputerAI
         if(Vector3.Distance(transform.position, currentTarget.transform.position) > AttackRange) {
             petstate = PetState.chasing;
         }
+
 
         rb.velocity = Vector3.zero;
         transform.LookAt(currentTarget.transform);

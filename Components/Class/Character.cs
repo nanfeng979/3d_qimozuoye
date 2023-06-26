@@ -23,7 +23,7 @@ public class Character : MonoBehaviour
 
     public void TakeDamage(int damage) {
         HP -= damage;
-        anim.SetTrigger("isBeAttacked");
+        // anim.SetTrigger("isBeAttacked");
     }
 
     public virtual void Attack() {}
