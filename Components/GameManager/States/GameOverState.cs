@@ -5,5 +5,6 @@ public class GameOverState : GameState {
 
     public override void EnterState() {
         Time.timeScale = 0.0f;
+        Debug.Log("游戏结束");
     }
 }

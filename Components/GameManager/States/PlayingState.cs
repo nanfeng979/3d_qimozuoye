@@ -11,5 +11,9 @@ public class PlayingState : GameState {
         GameManager.Instance.Player.GetComponent<PlayerMove>().isPlaying();
         GameManager.Instance.GameTimeCountDown.GetComponent<GameTimeCountDown>().isPlaying();
         GameManager.Instance.Pet.GetComponent<Pet>().isPlaying();
+
+        if(GameManager.Instance.Player.GetComponent<Character>().GetHP() <= 0) {
+            GameManager.Instance.SetGameStatus(new GameOverState(GameManager.Instance));
+        }
     }
 }

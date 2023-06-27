@@ -34,4 +34,8 @@ public class Character : MonoBehaviour
 
     public virtual void IsDead() {}
 
+    public float GetHP() {
+        return HP;
+    }
+
 }
