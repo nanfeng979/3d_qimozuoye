@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// 用于管理摄像机的位置。
 public class PlayerAndCamera : MonoBehaviour
 {
     [Range(1.0f, 10.0f)]

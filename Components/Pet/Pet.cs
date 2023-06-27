@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+// 宠物的状态枚举
 enum PetState {
     stand,
     move,
@@ -18,7 +19,6 @@ public class Pet : ComputerAI
     public float moveSpeed;
 
     private float withPlayerDistance = 50.0f;
-
 
     private NavMeshAgent agent;
     private PetState petstate;
@@ -43,12 +43,14 @@ public class Pet : ComputerAI
 
     void Update()
     {
+        // 实时更新血量UI。
         SetBloodVolumeBar();
 
         if(HP <= 0) {
             IsDead();
         }
 
+        // 宠物的智能行为的有限状态机。
         switch (petstate) {
             case PetState.stand:
                 StandState();

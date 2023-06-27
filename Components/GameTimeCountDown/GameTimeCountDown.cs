@@ -4,16 +4,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 
+// 用于表示游戏已经经过了多久。
 public class GameTimeCountDown : MonoBehaviour
 {
     public float GameOverTime;
 
     [SerializeField] private TMP_Text GameTimeText;
-
-    void Start()
-    {
-        
-    }
 
     void Update()
     {
@@ -37,6 +33,7 @@ public class GameTimeCountDown : MonoBehaviour
         }
     }
 
+    // 暂停游戏
     private void GameOver() {
         GameTimeText.text = "游戏结束";
 
@@ -44,6 +41,7 @@ public class GameTimeCountDown : MonoBehaviour
         GameManager.Instance.SetGameStatus(new StopState(GameManager.Instance));
     }
 
+    // 重开游戏。
     private void ResetGame() {
         GameManager.Instance.SetGameStatus(new GameStartState(GameManager.Instance));
     }

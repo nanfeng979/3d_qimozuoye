@@ -1,3 +1,4 @@
+// GameState基类，用来管理游戏状态
 public abstract class GameState {
     protected GameManager gameManager;
 

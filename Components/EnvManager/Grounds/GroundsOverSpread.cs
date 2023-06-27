@@ -17,12 +17,6 @@ public class GroundsOverSpread : MonoBehaviour
 
         OverSpread(4);
     }
-
-    void Update()
-    {
-        
-    }
-
     private void OverSpread(int len) {
         for(int i = -widthCount / 2; i < widthCount / 2; i++) {
             for(int j = -heightCount / 2; j < heightCount / 2; j++) {

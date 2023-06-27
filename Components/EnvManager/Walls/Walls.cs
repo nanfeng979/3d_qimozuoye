@@ -11,6 +11,7 @@ public class Walls : MonoBehaviour
 
     void Start()
     {
+        // 利用脚本实现自动创建墙，并且固定好方位。
         for(int i = 0; i < len; i++) {
             GameObject Wall_left = Instantiate(Wall, new Vector3(-4, 0, i * 4), Quaternion.identity, EnvWalls.transform);
             Wall_left.transform.Rotate(0, 90, 0);
@@ -21,8 +22,4 @@ public class Walls : MonoBehaviour
         }   
     }
 
-    void Update()
-    {
-        
-    }
 }
