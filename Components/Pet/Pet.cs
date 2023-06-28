@@ -70,7 +70,7 @@ public class Pet : ComputerAI
         }
     }
 
-    private void StandState() {
+    public override void StandState() {
         if(player.GetComponent<PlayerMove>().isMove) {
             petstate = PetState.move;
         }
@@ -87,7 +87,7 @@ public class Pet : ComputerAI
         transform.rotation = player.transform.rotation;
     }
 
-    private void MoveState() {
+    public override void MoveState() {
         if(!player.GetComponent<PlayerMove>().isMove) {
             petstate = PetState.back;
         }
@@ -104,7 +104,7 @@ public class Pet : ComputerAI
         // transform.position = Vector3.MoveTowards(transform.position, player.transform.position, 0.1f);
     }
 
-    private void ChasingState() {
+    public override void ChasingState() {
         if(Vector3.Distance(transform.position, currentTarget.transform.position) > ViewRange) {
             petstate = PetState.back;
         }
@@ -118,7 +118,7 @@ public class Pet : ComputerAI
         transform.LookAt(currentTarget.transform);
     }
 
-    private void AttackState() {
+    public override void AttackState() {
         if(Vector3.Distance(transform.position, currentTarget.transform.position) > AttackRange) {
             petstate = PetState.chasing;
         }
@@ -134,7 +134,7 @@ public class Pet : ComputerAI
         }
     }
 
-    private void BackState() {
+    public override void BackState() {
         if(Vector3.Distance(transform.position, player.transform.position) < 3.0f) {
             petstate = PetState.stand;
         }

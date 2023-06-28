@@ -78,7 +78,7 @@ public class Enemy : ComputerAI
         return null;
     }
 
-    private void StandState() {
+    public override void StandState() {
         anim.SetBool("isAttack", false);
 
 
@@ -111,7 +111,7 @@ public class Enemy : ComputerAI
         
     }
     
-    private void ChasingState() {
+    public override void ChasingState() {
         if(currentTarget == null) {
             enemyState = EnemyState.back;
         }
@@ -124,7 +124,7 @@ public class Enemy : ComputerAI
         transform.LookAt(currentTarget.transform);
     }
 
-    private void AttackState() {
+    public override void AttackState() {
         if(currentTarget == null) {
             enemyState = EnemyState.stand;
             return;
@@ -140,7 +140,7 @@ public class Enemy : ComputerAI
         }
     }
 
-    private void BackState() {
+    public override void BackState() {
 
     }
 

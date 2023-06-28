@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public GameObject Player;
     public GameObject GameTimeCountDown;
     public GameObject Pet;
+    public GameObject Enemy;
 
     void Start()
     {

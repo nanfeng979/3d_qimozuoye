@@ -19,11 +19,6 @@ public class PlayerMove : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
     }
 
-    void Update()
-    {
-
-    }
-
     public void isPlaying() {
         Move();
         Jump();

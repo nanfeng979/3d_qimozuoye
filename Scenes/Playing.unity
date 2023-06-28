@@ -4051,6 +4051,7 @@ MonoBehaviour:
   Player: {fileID: 1645125072}
   GameTimeCountDown: {fileID: 1980857905}
   Pet: {fileID: 1877453027}
+  Enemy: {fileID: 1361707508}
 --- !u!4 &1642916270 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5878289632702460942, guid: 90157a883c4ce9041886d48757db3385, type: 3}

@@ -18,5 +18,9 @@ public class PlayingState : GameState {
         if(GameManager.Instance.Player.GetComponent<Character>().GetHP() <= 0) {
             GameManager.Instance.SetGameStatus(new GameOverState(GameManager.Instance));
         }
+
+        if(GameManager.Instance.Enemy.GetComponent<Character>().GetHP() <= 0) {
+            GameManager.Instance.SetGameStatus(new GameOverState(GameManager.Instance));
+        }
     }
 }
