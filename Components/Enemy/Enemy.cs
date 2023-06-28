@@ -23,7 +23,8 @@ public class Enemy : ComputerAI
     void Start()
     {
         anim = GetComponent<Animator>();
-        agent = GetComponent<NavMeshAgent>();
+        // agent = GetComponent<NavMeshAgent>();
+        agent = null;
 
         HP = 100;
         MaxHP = 100;
@@ -92,22 +93,21 @@ public class Enemy : ComputerAI
             HP = MaxHP;
         }
 
-        if(isPositionA) {
-            agent.SetDestination(positionA.position);
+        if(agent != null) {
+            if(isPositionA) {
+                agent.SetDestination(positionA.position);
 
-            if(Vector3.Distance(transform.position, positionA.position) <= 1.0f) {
-                isPositionA = false;
-            }
-            
-        } else {
-            agent.SetDestination(positionB.position);
+                if(Vector3.Distance(transform.position, positionA.position) <= 1.0f) {
+                    isPositionA = false;
+                }
+            } else {
+                agent.SetDestination(positionB.position);
 
-            if(Vector3.Distance(transform.position, positionB.position) <= 1.0f) {
-                isPositionA = true;
+                if(Vector3.Distance(transform.position, positionB.position) <= 1.0f) {
+                    isPositionA = true;
+                }
             }
-            
         }
-        
         
     }
     

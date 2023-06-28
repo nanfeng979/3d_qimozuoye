@@ -5,11 +5,14 @@ using UnityEngine;
 public class Player : Character
 {
     public PlayerMove playerMove;
+    public GameObject enemy;
 
     void Start()
     {
         HP = 300;
         MaxHP = 300;
+        AttackDamage = 30;
+        currentTarget = enemy;
     }
 
     void Update()
@@ -33,6 +36,11 @@ public class Player : Character
 
     public override void Attack() {
         anim.SetTrigger("isAttack");
+        Invoke(nameof(Damage), 0.8f);
+    }
+
+    public void Damage() {
+        currentTarget.GetComponent<Character>().TakeDamage((int)AttackDamage);
     }
 
     private void Move(bool isMove) {
