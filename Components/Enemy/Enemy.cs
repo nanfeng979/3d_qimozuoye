@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 enum EnemyState {
     stand,
@@ -11,12 +12,18 @@ enum EnemyState {
 
 public class Enemy : ComputerAI
 {
+    public Transform positionA;
+    public Transform positionB;
 
     private EnemyState enemyState;
+
+    private NavMeshAgent agent;
+    private bool isPositionA = true;
 
     void Start()
     {
         anim = GetComponent<Animator>();
+        agent = GetComponent<NavMeshAgent>();
 
         HP = 100;
         MaxHP = 100;
@@ -84,6 +91,24 @@ public class Enemy : ComputerAI
         } else {
             HP = MaxHP;
         }
+
+        if(isPositionA) {
+            agent.SetDestination(positionA.position);
+
+            if(Vector3.Distance(transform.position, positionA.position) <= 1.0f) {
+                isPositionA = false;
+            }
+            
+        } else {
+            agent.SetDestination(positionB.position);
+
+            if(Vector3.Distance(transform.position, positionB.position) <= 1.0f) {
+                isPositionA = true;
+            }
+            
+        }
+        
+        
     }
     
     private void ChasingState() {
